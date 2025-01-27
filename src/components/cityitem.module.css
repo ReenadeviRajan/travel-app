@@ -1,0 +1,22 @@
+.city {
+  display: flex;
+  background-color: burlywood;
+  align-items: center;
+  margin: 20px 0px;
+  justify-content: space-between;
+  color: white;
+}
+
+.city > div {
+  padding: 5px;
+}
+
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cityLink {
+  text-decoration: none;
+}
