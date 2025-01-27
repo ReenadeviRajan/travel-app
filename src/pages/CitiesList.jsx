@@ -3,12 +3,10 @@ import Loader from "../components/Loader";
 import CityItem from "../components/CityItem";
 import Message from "./Message";
 import styles from "./CityList.module.css";
+import { useCity } from "../context/CityContext";
 
-export default function CitiesList({ cities, loading }) {
-  CitiesList.propTypes = {
-    cities: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
-  };
+export default function CitiesList() {
+  const { cities, loading } = useCity();
   if (loading) {
     return <Loader />;
   }

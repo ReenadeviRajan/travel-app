@@ -2,12 +2,10 @@ import PropTypes from "prop-types";
 import styles from "./CountriesList.module.css";
 import CountryItem from "../components/CountryItem";
 import Loader from "../components/Loader";
+import { useCity } from "../context/CityContext";
 
-export default function CountriesList({ cities, loading }) {
-  CountriesList.propTypes = {
-    cities: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
-  };
+export default function CountriesList() {
+  const { cities, loading } = useCity();
 
   if (loading)
     return (

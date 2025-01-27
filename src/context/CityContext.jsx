@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const cityContext = createContext(null);
 
@@ -27,4 +27,12 @@ export const CityProvider = ({ children }) => {
       {children}
     </cityContext.Provider>
   );
+};
+
+export const useCity = () => {
+  const context = useContext(cityContext);
+  if (!context) {
+    throw new Error("cityContext is used outside the provider");
+  }
+  return context;
 };
