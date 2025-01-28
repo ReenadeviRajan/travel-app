@@ -6,7 +6,6 @@ import About from "./pages/About";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";
-import { useEffect, useState } from "react";
 import CitiesList from "./pages/CitiesList";
 import CountriesList from "./pages/CountriesList";
 import CityDetails from "./pages/CityDetails";

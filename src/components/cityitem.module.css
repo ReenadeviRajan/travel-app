@@ -20,3 +20,7 @@
 .cityLink {
   text-decoration: none;
 }
+
+.activeCity {
+  background-color: green;
+}
