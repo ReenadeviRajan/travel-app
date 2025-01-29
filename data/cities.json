@@ -37,15 +37,6 @@
       "date": "2023-12-02"
     },
     {
-      "id": "5",
-      "name": "Sydney",
-      "country": "Australia",
-      "latitude": -33.8688,
-      "longitude": 151.2093,
-      "emoji_flag": "🇦🇺",
-      "date": "2023-12-02"
-    },
-    {
       "id": "3147",
       "name": "Coimbatore",
       "country": "India",
@@ -64,22 +55,13 @@
       "date": "1/29/2025"
     },
     {
-      "id": "1666",
-      "name": "Tirumangalam",
-      "country": "India",
-      "latitude": "9.743087693751262",
-      "longitude": "77.93285144627801",
-      "countryCode": "IN",
-      "date": "1/29/2025"
-    },
-    {
-      "id": "7fc3",
-      "name": "Orathanadu",
-      "country": "India",
-      "latitude": "10.564772123699806",
-      "longitude": "79.240698846173",
-      "countryCode": "IN",
-      "date": "1/29/2025"
+      "id": "0277",
+      "name": "Ireland",
+      "country": "Ireland",
+      "latitude": "51.58617498171508",
+      "longitude": "-8.613281250000002",
+      "countryCode": "IE",
+      "date": "1/30/2025"
     }
   ]
 }
