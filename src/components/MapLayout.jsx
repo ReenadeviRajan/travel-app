@@ -1,22 +1,27 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import styles from "./MapLayout.module.css";
 import { useCity } from "../context/CityContext";
 import { useEffect, useState } from "react";
+import { useURLPosition } from "../hooks/useURLPosition";
 export default function MapLayout() {
-  const [searchParams, setSearchParams] = useSearchParams(); // Returns a tuple of the current URL's URLSearchParams and a function to update them. Setting the search params causes a navigation.
-
   const navigate = useNavigate();
-
-  const mapLat = searchParams.get("lat");
-  const mapLong = searchParams.get("long");
 
   const { cities } = useCity();
 
   const [mapPosition, setMapPosition] = useState([40, 0]);
 
+  const { mapLat, mapLong } = useURLPosition();
+
   function showForm() {
-    navigate(`/app/addCity`);
+    navigate(`/app/addcity`);
   }
 
   useEffect(() => {
@@ -25,7 +30,7 @@ export default function MapLayout() {
     }
   }, [mapLat, mapLong]);
   return (
-    <div onClick={showForm} style={{ height: "100%" }}>
+    <div style={{ height: "100%" }}>
       {/*click where ever it gets navigates*
       lat : {lat}, long : {long}
       <button onClick={() => setSearchParams({ lat: 1, long: 1 })}>
@@ -45,6 +50,7 @@ export default function MapLayout() {
           </Marker>
         ))}
         <ChangeLayout position={mapPosition} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
@@ -54,4 +60,14 @@ function ChangeLayout({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
+}
+
+function DetectClick() {
+  const navigate = useNavigate();
+  useMapEvents({
+    click: (e) => {
+      navigate(`addcity?lat=${e.latlng.lat}&long=${e.latlng.lng}`);
+      console.log(e);
+    },
+  });
 }

@@ -26,7 +26,7 @@ function App() {
             <Route path="app" element={<AppLayout />}>
               <Route index element={<CitiesList />} />
               <Route path="cities" element={<CitiesList />} />
-              <Route path="addCity" element={<AddCity />} />
+              <Route path="addcity" element={<AddCity />} />
               <Route path="cities/:cityId" element={<CityDetails />} />
               <Route path="countries" element={<CountriesList />} />
             </Route>

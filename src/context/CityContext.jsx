@@ -33,6 +33,41 @@ export const CityProvider = ({ children }) => {
     }
   }
 
+  async function setCity(city) {
+    try {
+      setLoading(true);
+      let response = await fetch(`${citiesUrl}`, {
+        method: "POST",
+        body: JSON.stringify(city),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let data = await response.json();
+      setCities((cities) => [...cities, data]);
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function deleteCity(id) {
+    try {
+      setLoading(true);
+      await fetch(`${citiesUrl}/${id}`, {
+        method: "Delete",
+      });
+
+      setCities((cities) => cities.filter((city) => city.id != id));
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   useEffect(function () {
     fetchCities();
   }, []);
@@ -42,6 +77,8 @@ export const CityProvider = ({ children }) => {
     loading,
     getCity,
     currentCity,
+    setCity,
+    deleteCity,
   };
   return <cityContext.Provider value={values}>{children}</cityContext.Provider>;
 };
